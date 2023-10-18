@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.homework.mapper.MusicMapper">
+
+  <resultMap id="musicMap" type="com.example.homework.entity.MusicEntity">
+        <id property="id" column="id"/>
+        <id property="songId" column="song_id"/>
+        <id property="songName" column="song_name"/>
+        <id property="songType" column="song_type"/>
+        <id property="singerName" column="singer_name"/>
+        <id property="composerName" column="composer_name"/>
+        <id property="lyricistName" column="lyricist_name"/>
+        <id property="lyrics" column="lyrics"/>
+        <id property="releaseDate" column="release_date"/>
+        <id property="hotComment" column="hot_comment"/>
+        <id property="latestComment" column="latest_comment"/>
+        <id property="likeCount" column="like_count"/>
+        <id property="commentCount" column="comment_count"/>
+  </resultMap>
+</mapper>

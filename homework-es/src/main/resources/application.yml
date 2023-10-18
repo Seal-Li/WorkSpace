@@ -1,0 +1,41 @@
+
+server:
+  # 按需修改
+  port: 8090
+
+spring:
+  application:
+    name: @artifactId@
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    # 按需修改
+    username: root
+    # 按需修改
+    password: 980523
+    # 按需修改
+    url: jdbc:mysql://192.168.137.2:23306/t_base?useUnicode=true&characterEncoding=utf-8&useSSL=false
+  cloud:
+    openfeign:
+      client:
+        config:
+          connectTimeout: 5000
+          readTimeout: 5000
+          loggerLevel: basic
+    nacos:
+      username: @nacos.username@
+      password: @nacos.password@
+      discovery:
+        # 按需修改
+        server-addr: ${NACOS_HOST:pig-register}:${NACOS_PORT:8848}
+      config:
+        # 按需修改
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+  config:
+    import:
+      - nacos:application-@profiles.active@.yml
+      - nacos:${spring.application.name}-@profiles.active@.yml
+
+easy-es:
+  enable: true
+  address: 172.16.3.205:9200
